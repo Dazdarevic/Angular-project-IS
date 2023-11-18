@@ -1,0 +1,75 @@
+<div class="container kartica">
+  <div class="row justify-content-center align-items-center inner-row">
+    <div class="col-lg-8">
+      <div class="card mb-4">
+        <div class="card-body" style="
+          box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);">
+          <div class="row">
+            <div class="col-sm-3">
+              <p class="mb-0">First Name</p>
+            </div>
+            <div class="col-sm-9">
+              <p class="text-muted mb-0">
+                  {{ admin?.firstName | uppercase}}
+              </p>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-3">
+              <p class="mb-0">Last Name</p>
+            </div>
+            <div class="col-sm-9">
+              <p class="text-muted mb-0">
+                {{ admin?.lastName | uppercase}}
+              </p>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-3">
+              <p class="mb-0">Email</p>
+            </div>
+            <div class="col-sm-9">
+              <p class="text-muted mb-0">
+                {{ admin?.userEmail }}
+              </p>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-3">
+              <p class="mb-0">Phone</p>
+            </div>
+            <div class="col-sm-9">
+              <p class="text-muted mb-0">
+                {{ admin?.phoneNumber }}
+              </p>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-3">
+              <p class="mb-0">Gender</p>
+            </div>
+            <div class="col-sm-9">
+              <p class="text-muted mb-0">
+                {{ admin?.gender | uppercase}}
+              </p>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-3">
+              <p class="mb-0">Birthday</p>
+            </div>
+            <div class="col-sm-9">
+              <p class="text-muted mb-0">
+                {{ admin?.birthdayDate }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

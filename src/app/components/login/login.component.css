@@ -1,0 +1,26 @@
+.inner-row {
+  height: 80vh;
+}
+.primaryBg {
+  background-color: #FFEA20;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14);
+
+}
+.primaryBg:hover {
+  background-color: black;
+  color: #FFEA20;
+}
+.form-box {
+  background-color: white;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.primaryColor {
+  color: #000;
+  font-weight: bold;
+}
+.primaryColor:hover {
+  text-decoration: underline;
+}
+.text-danger {
+  margin-left: 13px;
+}

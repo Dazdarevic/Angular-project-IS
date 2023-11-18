@@ -1,0 +1,186 @@
+<div class="container">
+  <div class="row justify-content-center align-items-center inner-row">
+    <div class="col-md-15">
+
+      <div class="row mt-3" style="background-color: black;
+      color: white; margin-left: 1px; margin-right: 1px;
+      box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);">
+        <div class="col-3">
+          <h1 class="mt-4">Client Dashboard</h1>
+        </div>
+      </div>
+
+      <div class="row"
+      style="background-color: white; color: black;
+      margin-left: 1px; margin-right: 1px;
+      box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);">
+        <div class="col-3">
+          <h3 class="mt-4">Company Manager</h3>
+        </div>
+        <div class="col mx-2">
+          <button type="button" class="btn btn-primary mt-4"
+          style="margin-bottom: 20px; float: right;"
+          (click)="openPopup()">
+            + Add Company
+          </button>
+          <button type="button" class="btn btn-success mt-4"
+          style="margin-bottom: 20px; float: right; margin-right: 20px;"
+          (click)="addAdvertise()">
+            Create Advertisement
+          </button>
+        </div>
+        <hr>
+        <div class="row">
+          <table class="table table-striped table-hover">
+                <tbody>
+                  <tr *ngFor="let company of companies">
+                    <td>ID {{ company.companyID }}</td>
+                    <td>My Company: {{ company.companyName }}</td>
+                    <td>
+                      <img [src]="company.companyLogo" alt="Company Image" width="50" height="50"
+                style="width: 80px; border-radius: 50%;">
+                    </td>
+                    <td>{{ company.companyOwner }}</td>
+                    <td>{{ company.companySector }}</td>
+                    <td>{{ company.companyPIB }}</td>
+                    <td>{{ company.companyEmail }}</td>
+                    <td>
+                        <input
+                        (click)="deleteCompany(company.companyID)"
+                        type="button" value="Delete" class="btn btn-danger">
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- </div> -->
+
+
+
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display': displayStyleEdit}">
+  <div class="modal-dialog" role="document" >
+    <div class="modal-content " style="background-color: white;">
+      <div class="modal-backdrop"></div>
+      <div class="modal-header">
+        <h1 class="modal-title text-primary" style="font-size: 36px; font-weight: 600;">
+          My Company
+        </h1>
+      </div>
+      <div class="modal-body">
+        <section class="vh-200 gradient-custom">
+          <div class="container py-5 h-100">
+            <div class="row align-items-center h-100">
+              <div class="col-12 col-lg-9 col-xl-7">
+                <div class="card shado-2-strong card-registration" style="border-radius: 15px;
+                width: 440px; margin-left: 0;">
+                  <div class="card-body p-4 p-md-5">
+                    <!-- <h1 class="mb-4 pb-2 pb-md-0 mb-md-5">
+                      Add New Company
+                    </h1> -->
+                    <form [formGroup]='companyForm' (submit)="handleSubmit()">
+
+                      <div class="row">
+                        <div class="col-md-6 mb-4">
+                          <div class="form-outline form-floating">
+                            <input type="text" id="companyPIB" placeholder="PIB"
+                            class="form-control form-control-lg" formControlName="companyPIB" />
+                            <label class="form-label" for="companyPIB">PIB</label>
+                          </div>
+                        </div>
+
+                        <div class="col-md-6 mb-4">
+                          <div class="form-outline form-floating">
+                            <input type="text" id="companyName" placeholder="Name Of Company" class="form-control form-control-lg"
+                            formControlName="companyName" />
+                            <label class="form-label" for="companyName">Name of Company</label>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-md-6 mb-4">
+                          <div class="form-outline form-floating">
+                            <input type="text" id="companyAddress" placeholder="Address"
+                            class="form-control form-control-lg"
+                            formControlName="companyAddress" />
+                            <label class="form-label" for="companyAddress">Address</label>
+                          </div>
+                        </div>
+                        <div class="col-md-6 mb-4 d-flex align-items-center">
+                          <div class="form-outline datepicker w-100 form-floating">
+                            <input type="text" id="companyOwner" placeholder="Owner"
+                            class="form-control form-control-lg" formControlName="companyOwner" />
+                            <label class="form-label" for="companyOwner">Owner</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-md-6 mb-4">
+                          <div class="form-outline form-floating">
+                            <input type="email" id="companyEmail" placeholder="Email" class="form-control form-control-lg"
+                            formControlName="companyEmail" />
+                            <label class="form-label" for="companyEmail">Email of Company</label>
+                          </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                          <div class="form-outline form-floating">
+                            <input type="text" id="companySector" placeholder="Tel."
+                            class="form-control form-control-lg" formControlName="companySector" />
+                            <label class="form-label" for="companySector">Business Sector</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 mb-4 d-flex align-items-center">
+                          <div class="form-outline datepicker w-100 form-floating">
+                            <input type="file" id="companyLogo"
+                            class="form-control form-control-lg"
+                            formControlName="companyLogo"
+                            (change)="getFile($event)"
+                            />
+                            <label class="form-label" for="companyLogo">Logo</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6 mb-4">
+                          <div class="form-outline form-floating">
+                            <input type="text" id="companyTel" placeholder="Tel."
+                            class="form-control form-control-lg" formControlName="companyTel" />
+                            <label class="form-label" for="companyTel">Tel 1.</label>
+                          </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                          <div class="form-outline form-floating">
+                            <input type="text" id="companyTel2" placeholder="Tel 2."
+                            class="form-control form-control-lg" formControlName="companyTel2" />
+                            <label class="form-label" for="companyTel2">Tel 2.</label>
+                          </div>
+                        </div>
+                      </div>
+                      <p *ngIf="errMessage" class="alert alert-danger alert-dismissible fade show">
+                        {{ errMessage }}
+                      </p>
+                      <div class="mt-4 pt-2" style="float: left;">
+                        <input class="btn btn-primary btn-lg" type="submit" value="Save" />
+                      </div>
+                    </form>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-warning" (click)="closePopupEdit()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

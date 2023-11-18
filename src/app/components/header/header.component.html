@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+    <img src="assets/adlogo.png" alt="Ikonica" width="180" height="50" class="d-inline-block align-top"
+    style="margin-left: 50px;">
+  </a>  <button class="navbar-toggler" type="button" data-toggle="collapse"
+  data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+  aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div [ngSwitch]="menuType" class="collapse navbar-collapse" id="navbarNav">
+    <ul *ngSwitchCase="'default'"  class="navbar-nav" style="margin-left: 280px;">
+      <li class="nav-item active" routerLinkActive="active current">
+        <a class="nav-link" routerLink="">Home</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active current">
+        <a class="nav-link" routerLink="all-ads-show">All Advertisements</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active current">
+        <a class="nav-link" routerLink="login">Login</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active current">
+        <a class="nav-link" routerLink="signup">Sign Up</a>
+      </li>
+    </ul>
+    <ul *ngSwitchCase="'admin'" class="navbar-nav" style="margin-left: 280px;">
+      <li class="nav-item" routerLinkActive="active current">
+        <a class="nav-link" routerLink="users">Users</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active current">
+        <a class="nav-link" routerLink="admin-profile">My Profile</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active current">
+        <a class="nav-link" routerLink="login" (click)="logout()">Log out</a>
+      </li>
+    </ul>
+    <ul *ngSwitchCase="'client'" class="navbar-nav" style="margin-left: 80px;">
+      <li class="nav-item" routerLinkActive="active current">
+        <a class="nav-link" routerLink="client-dashboard">Dashboard</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active current">
+        <a class="nav-link" routerLink="client-company">My Company</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active current">
+        <a class="nav-link" routerLink="advertisement">Create Advertisement</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active current">
+        <a class="nav-link" routerLink="all-advertisements">All Advertisements</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active current">
+        <a class="nav-link" routerLink="client-profile">My Profile</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active current">
+        <a class="nav-link" routerLink="login" (click)="logout()">Log out</a>
+      </li>
+    </ul>
+  </div>
+</nav>
